@@ -1,20 +1,18 @@
-resource "azurerm_network_security_group" "network_security_group" {
+resource "azurerm_virtual_network" "virtual_network" {
 
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  name = var.name
+  name          = var.name
+  address_space = var.address_space
 
   tags = var.tags
 }
 
-output "network_security_group" {
-  value = azurerm_network_security_group.network_security_group
+output "virtual_network_name" {
+  value = azurerm_virtual_network.virtual_network.name
 }
 
-output "name" {
-  value = azurerm_network_security_group.network_security_group.name
-}
-output "id" {
-  value = azurerm_network_security_group.network_security_group.id
+output "virtual_network" {
+  value = azurerm_virtual_network.virtual_network
 }

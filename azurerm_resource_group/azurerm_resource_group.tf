@@ -1,20 +1,19 @@
-resource "azurerm_network_security_group" "network_security_group" {
+resource "azurerm_resource_group" "resource_group" {
 
-  resource_group_name = var.resource_group_name
-  location            = var.location
-
-  name = var.name
+  name     = var.name
+  location = var.location
 
   tags = var.tags
 }
 
-output "network_security_group" {
-  value = azurerm_network_security_group.network_security_group
+output "resource_group" {
+  value = azurerm_resource_group.resource_group
 }
 
-output "name" {
-  value = azurerm_network_security_group.network_security_group.name
+output "resource_group_name" {
+  value = azurerm_resource_group.resource_group.name
 }
-output "id" {
-  value = azurerm_network_security_group.network_security_group.id
+
+output "resource_group_id" {
+  value = azurerm_resource_group.resource_group.id
 }
